@@ -187,37 +187,4 @@ def render_world_map(gdpinfo, codeinfo, plot_countries, year, map_file):
     # Render the map to an SVG file
     worldmap.render_to_file(map_file)
 
-def test_render_world_map():
-    """
-    Test the project code for several years
-    """
-    gdpinfo = {
-        "gdpfile": "isp_gdp.csv",
-        "separator": ",",
-        "quote": '"',
-        "min_year": 1960,
-        "max_year": 2015,
-        "country_name": "Country Name",
-        "country_code": "Country Code"
-    }
-
-    codeinfo = {
-        "codefile": "isp_country_codes.csv",
-        "separator": ",",
-        "quote": '"',
-        "plot_codes": "ISO3166-1-Alpha-2",
-        "data_codes": "ISO3166-1-Alpha-3"
-    }
-
-    # Get pygal country code map
-    pygal_countries = pygal.maps.world.COUNTRIES
-
-    # 1960
-    render_world_map(gdpinfo, codeinfo, pygal_countries, "1960", "isp_gdp_world_code_1960.svg")
-
-    # 2000
-    render_world_map(gdpinfo, codeinfo, pygal_countries, "2000", "isp_gdp_world_code_2000.svg")
-
-    # 2010
-    render_world_map(gdpinfo, codeinfo, pygal_countries, "2010", "isp_gdp_world_code_2010.svg")
 
